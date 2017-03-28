@@ -1,0 +1,73 @@
+<div>
+	<nav class='navbar navbar-default navbar-fixed-top'>
+		<div class='container-fluid'>
+			<ul class="social-network social-circle"
+				style="position: relative; top: 10px">
+				<li><a href="#" class="icoFacebook" title="Facebook"><i
+						class="fa fa-facebook fa-1x"></i></a></li>
+				<li class="divider-vertical"></li>
+				<li><a href="#" class="icoTwitter" title="Twitter"><i
+						class="fa fa-twitter fa-1x"></i></a></li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li><div class="panel-heading  text-right" id="welcome"
+						style="display: none;"></div></li>
+				<li><div id="welcome" style="display: none"></div></li>
+				<li class="divider-vertical"></li>
+				<li><div class="btn-nav">
+						<a id="login" class="btn btn-primary btn-small navbar-btn"
+							(click)="login()">Login</a>
+					</div></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container" style="position: relative; top: 100px">
+		<div class="row">
+			<div class="col-xs-7 col-xs-offset-3">
+				<div class="panel panel-primary">
+					<div class="panel-heading">Login</div>
+					<div class="panel-body" align="center">
+						<form class="form-horizontal" #loginForm="ngForm">
+							<div class="form-group">
+								<label for="name" class="col-xs-2 control-label">User
+									Name</label>
+								<div class="col-xs-8">
+									<input type="text" class="form-control" name="username" [(ngModel)] = "login.userName" #username="ngModel" required>
+									<div class="alert alert-danger"
+									*ngIf="username.touched && !username.valid">UserName is required</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="password" class="col-xs-2 control-label">Password</label>
+								<div class="col-xs-8">
+									<input type="password" class="form-control" name="password" #password="ngModel" [(ngModel)] = "login.password" required>
+									<div *ngIf="password.touched && !password.valid"
+									class="alert alert-danger">Password is required</div>
+								</div>
+							</div>
+							
+							<div *ngIf="!valid" style="color: red">Invalid
+							Credentials...Please try again...</div>
+							<br />
+						</form>
+						<div class="form-group row">
+							<span class="col-xs-offset-2 col-xs-8">
+								<button (click)="onSubmit()"
+									class="btn btn-primary" [disabled]="!loginForm.form.valid">Login</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="footer">
+		<div style="color: #ff0080">
+			<span style="position: relative; top: 20px; left: 520px">Copyright
+				&copy; UI & Markup Team, Infosys Limited</span>
+		</div>
+	</footer>
+</div>
